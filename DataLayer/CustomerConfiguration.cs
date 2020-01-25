@@ -14,10 +14,16 @@ namespace MasterDetail.DataLayer
         public CustomerConfiguration()
         {
             Property(c => c.AccountNumber)
-                .HasMaxLength(8)
-                .IsRequired()
-                .HasColumnAnnotation("Index",
-                    new IndexAnnotation(new IndexAttribute("AK_Customer_AccountNumber") { IsUnique = true }));
+               .HasMaxLength(8)
+               .IsRequired()
+               .HasColumnAnnotation("Index",
+                   new IndexAnnotation(new IndexAttribute("AK_Customer_AccountNumber") { IsUnique = true }));
+
+            Property(c => c.CompanyName)
+               .HasMaxLength(30)
+               .IsRequired()
+               .HasColumnAnnotation("Index",
+                   new IndexAnnotation(new IndexAttribute("AK_Customer_CompanyName") { IsUnique = true }));
 
             Property(c => c.CompanyName).HasMaxLength(30).IsRequired();
             Property(c => c.Address).HasMaxLength(30).IsRequired();
